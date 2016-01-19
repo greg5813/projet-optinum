@@ -1,4 +1,4 @@
-function [ res ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter )
+function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter )
 
     %f_tmp = str2func(nom_f);
     %f = @(x) f_tmp(x);
@@ -19,11 +19,11 @@ function [ res ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
     
     while ( norm(g_k) >= epsilon_1*norm(g_0) && niter <= maxiter )
         
-        [s_k, ~] = more_sorensen( g_k, H_k, delta_k );
+        [s_k, ~] = more_sorensen( g_k, H_k, delta_k )
         %[s_k, ~] = pas_cauchy( g_k, H_k, delta_k );
 
         if ( norm(s_k) < epsilon_2 )
-            disp('stagnation rc')
+            disp('[Region de confiance] stagnation')
             break;
         end
         
@@ -46,8 +46,7 @@ function [ res ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
         niter = niter + 1;
         
     end
-    
-    res = x_k;
+   
     %disp(niter)
     
 end
