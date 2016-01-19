@@ -17,13 +17,13 @@ function [ res ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
     H_k = H_f(x_0);
     
     
-    while ( norm(g_k)/norm(g_0) >= epsilon_1 && niter <= maxiter )
+    while ( norm(g_k) >= epsilon_1*norm(g_0) && niter <= maxiter )
         
         [s_k, ~] = more_sorensen( g_k, H_k, delta_k );
         %[s_k, ~] = pas_cauchy( g_k, H_k, delta_k );
 
         if ( norm(s_k) < epsilon_2 )
-            disp('stagnation')
+            disp('stagnation rc')
             break;
         end
         
@@ -48,7 +48,7 @@ function [ res ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
     end
     
     res = x_k;
-    disp(niter)
+    %disp(niter)
     
 end
 
