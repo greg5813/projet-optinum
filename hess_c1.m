@@ -1,6 +1,5 @@
 function [ y ] = hess_c1( x )
-%HESS_C1 Summary of this function goes here
-%   Detailed explanation goes here
+% hessienne de c1
 
     y = zeros(3);
 

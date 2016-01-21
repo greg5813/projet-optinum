@@ -1,6 +1,5 @@
 function [ res ] = H_La( x, lambda, mu, H_f, c, H_c, J_c )
-%H_LA Summary of this function goes here
-%   Detailed explanation goes here
+% hessienne du lagrangien augmenté
 
     c_x = c(x);
     H_c_x = H_c(x);

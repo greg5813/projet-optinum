@@ -1,6 +1,5 @@
 function [ y ] = hess_c2( x )
-%HESS_C2 Summary of this function goes here
-%   Detailed explanation goes here
+% hessienne de c2
 
     y = [2 0; 0 2];
 

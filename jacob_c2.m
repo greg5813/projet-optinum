@@ -1,6 +1,5 @@
 function [ y ] = jacob_c2( x )
-%JACOB_C2 Summary of this function goes here
-%   Detailed explanation goes here
+% jacobienne de c2
 
     y = grad_c2(x)';
 

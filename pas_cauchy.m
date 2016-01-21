@@ -1,4 +1,5 @@
 function [ s ] = pas_cauchy( g_k, H_k, delta_k )
+% calcul du pas de cauchy
 
     c = g_k'*H_k*g_k;
 

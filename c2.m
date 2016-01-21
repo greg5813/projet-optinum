@@ -1,6 +1,5 @@
 function [ y ] = c2( x )
-%C2 Summary of this function goes here
-%   Detailed explanation goes here
+% constraint function of function f2
 
     y = x(1)^2+x(2)^2-1.5;
 
