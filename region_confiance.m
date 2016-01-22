@@ -11,6 +11,7 @@ function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
     
     
     while ( norm(g_k) >= epsilon_1*norm(g_0) && niter <= maxiter )
+        niter = niter + 1;
         
         [s_k, ~] = more_sorensen( g_k, H_k, delta_k );
         %[s_k, ~] = pas_cauchy( g_k, H_k, delta_k );
@@ -35,8 +36,6 @@ function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
         elseif ( rho_k < eta_1 )
             delta_k = gamma_1*delta_k;           
         end
-        
-        niter = niter + 1;
         
     end
    

@@ -23,6 +23,7 @@ k = 0;
 g_L = grad_La(x_k,lambda_k,0,g_f,c,g_c,J_c);
 
 while ( (norm(g_L)>=eps1 || norm(c(x_k))>=eps2) && k<=maxiter ) 
+    k = k + 1;
     
     Laug = @(x) La(x,lambda_k,mu_k,f,c);
     g_Laug = @(x) grad_La(x,lambda_k,mu_k,g_f,c,g_c,J_c);
@@ -51,8 +52,6 @@ while ( (norm(g_L)>=eps1 || norm(c(x_k))>=eps2) && k<=maxiter )
         end
         
     end
-    
-    k = k + 1;
     
 end
 

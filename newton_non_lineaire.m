@@ -5,6 +5,7 @@ function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, 
     lambda = lambda_max;
 
     while ( min( abs(phi(lambda_min)), abs(phi(lambda_max)) ) >= epsilon && niter<=maxiter )
+        niter = niter +1;
    
         phi_lambda = phi(lambda);
         der_phi_lambda = der_phi(lambda);
@@ -21,7 +22,7 @@ function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, 
             end
             lambda = lambda_D;
         end
-        niter = niter +1;
+        
     end
 
     fprintf('[Newton non linéaire] niter : %d\n', niter)
