@@ -1,4 +1,5 @@
 function [ s, lambda ] = more_sorensen( g, H, delta )
+    % algorithme de more sorensen
     
     s = 0;
     lambda = 0;
@@ -7,6 +8,8 @@ function [ s, lambda ] = more_sorensen( g, H, delta )
     d = H\-g;
     phi = @(x) phi_ms(x,delta,V,vp,g);
     der_phi = @(x) der_phi_ms(x,delta,V,vp,g);
+    global n_phi_ms; n_phi_ms=0;
+    global n_der_phi_ms; n_der_phi_ms=0;
     
     if ( min(vp) >= 0 && norm(d) < delta )
         %disp('[More-Sorensen] pas de newton accepté')
@@ -25,7 +28,7 @@ function [ s, lambda ] = more_sorensen( g, H, delta )
                 niter = niter + 1;
             end
             if (niter == 1000)
-                disp('[More-Sorensen] attention pas de couple lambda_min lambda_max trouvé');
+                fprintf('[More-Sorensen] attention pas de couple lambda_min lambda_max trouvé\n')
             end
             lambda = newton_non_lineaire(phi,der_phi,lambda_min,lambda_max,10^-10,10000);
             for i=1:size(vp,1)
@@ -47,7 +50,7 @@ function [ s, lambda ] = more_sorensen( g, H, delta )
                     niter = niter + 1;
                 end
                 if (niter == 1000)
-                    disp('[More-Sorensen] attention pas de couple lambda_min lambda_max trouvé');
+                    fprintf('[More-Sorensen] attention pas de couple lambda_min lambda_max trouvé\n')
                 end
                 lambda = newton_non_lineaire(phi,der_phi,lambda_min,lambda_max,10^-10,10000);
                 for i=1:size(vp,1)

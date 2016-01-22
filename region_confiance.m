@@ -1,12 +1,5 @@
 function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter )
-
-    %f_tmp = str2func(nom_f);
-    %f = @(x) f_tmp(x);
-    %gf_tmp = str2func(nom_g_f);
-    %g_f = @(x) gf_tmp(x);
-    %Hf_tmp = str2func(nom_H_f);
-    %H_f = @(x) Hf_tmp(x);
-    
+% algorithme des regions de confiance
 
     niter = 0;
     x_k = x_0;
@@ -23,7 +16,7 @@ function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
         %[s_k, ~] = pas_cauchy( g_k, H_k, delta_k );
 
         if ( norm(s_k) < epsilon_2 )
-            disp('[Region de confiance] stagnation')
+            fprintf('[Region de confiance] stagnation\n')
             break;
         end
         
@@ -47,7 +40,7 @@ function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
         
     end
    
-    %disp(niter)
+    fprintf('[Region de confiance] niter : %d\n', niter)
     
 end
 

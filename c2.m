@@ -1,7 +1,9 @@
 function [ y ] = c2( x )
-% constraint function of function f2
+% fonction contrainte de f2
+    global n_c2;
+    n_c2 = n_c2+1;
 
-    y = x(1)^2+x(2)^2-1.5;
+    y = x(1)^2 + x(2)^2 - 1.5;
 
 end
 

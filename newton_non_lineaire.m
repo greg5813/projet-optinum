@@ -1,9 +1,5 @@
 function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, epsilon, maxiter)
-
-  %  phi_tmp = str2func(nom_phi);
-  %  phi = @(x) phi_tmp(x);
-  %  der_phi_tmp = str2func(nom_der_phi);
-  %  der_phi = @(x) der_phi_tmp(x);
+% algorithme de newton pour les equations non linéaires
 
     niter = 0;
     lambda = lambda_max;
@@ -24,9 +20,10 @@ function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, 
                 lambda_max = lambda_D;
             end
             lambda = lambda_D;
-       end
+        end
+        niter = niter +1;
     end
 
-    niter = niter +1;
+    fprintf('[Newton non linéaire] niter : %d\n', niter)
 end
 
