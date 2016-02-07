@@ -2,10 +2,10 @@ function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, 
 % NEWTON_NON_LINEAIRE algorithme de newton pour les equations non linéaires
 % lambda = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, epsilon, maxiter)
 
-% phi 
-% der_phi
-% lambda_min
-% lambda_max
+% phi fonction dont on cherche un zéro
+% der_phi derivée de la fonction dont on cherche un zéro
+% lambda_min borne inférieure de la zone de dichotomie
+% lambda_max borne supérieure de la zone de dichotomie
 % epsilon précision demandée
 % maxiter nombre maximal d'itérations
 % lambda solution

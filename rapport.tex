@@ -19,20 +19,43 @@
 
 \subsection{Algorithme de Newton local}
 
+L'algorithme implémenté converge en une seule itération pour la fonction de test f1 car le gradient de celle-ci est linéaire et donc sa hessienne est constante. Ainsi le calcul de la première direction de Newton amène directement au point de gradient nul qui est unique (f1 strictement convexe car sa hessienne est définie positive).\\
+
+L'algorithme peut en revanche ne pas converger pour la fonction de test f2 car la hessienne de celle-ci peut ,en fonction du point où elle est évaluée, ne pas être définie positive. La méthode utilisée ici n'est alors pas bien définie et l'algorithme peut diverger.
+
 \newpage
 \subsection{Régions de confiance : Partie 1}
 \subsubsection{Algorithme}
 \subsubsection{Le pas de Cauchy}
+
+Le modèle de Taylor de la fonction f1 est\\
+
+On peut aussi modifier delta\_max la taille maximale de la région de confiance, gamma\_1 et gamma\_2 les facteurs de modification de la taille de la région de confiance et eta\_1 et eta\_2 les seuils de modification de la taille de la région de confiance.
+
 
 \newpage
 \subsection{Régions de confiance : Partie 2}
 \subsubsection{Algorithme de Newton pour les équations non linéaires}
 \subsubsection{Algorithme de Moré-Sorensen}
 
+Le seul critère d'arrêt pertinent ici est la distance à la solution. Grâce à la dichotomie il ne peut y avoir de stagnation.
+
+Augmenter lambda\_max jusqu'à vérifier la condition.
+
+Comparaison avec pas de Cauchy
+
+Avantages inconvénients
+
 \newpage
 \section{Optimisation avec contraintes}
 
 \subsection{Lagrangien augmenté}
 \subsubsection{Algorithme pour contraintes d'égalité}
+
+Résultat
+
+Influence de tau
+
+Supplément
 
 \end{document}          

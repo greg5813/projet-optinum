@@ -1,5 +1,31 @@
 function [ x_k, lambda_k, mu_k ] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c, mu_0, tau, x_0, lambda_0, eps1, eps2, eps3, maxiter, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, eps4, maxiter2 )
 % LAGRANGIEN_AUG algorithme du lagrangien augmenté
+% [ x_k, lambda_k, mu_k ] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c, mu_0, tau, x_0, lambda_0, eps1, eps2, eps3, maxiter, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, eps4, maxiter2 )
+
+
+% f fonction dont on cherche un minimum
+% g_f gradient de la fonction
+% H_f hessienne de la fonction
+% c fonction des contraintes d'égalité
+% g_c gradient de la fonction
+% H_c hessienne de la fonction
+% J_c jacobienne de la fonction
+% mu_0
+% tau
+% x_0 point de départ, première estimation de la solution recherchée
+% lambda_0
+% eps1 précision de la solution pour la fonction
+% eps2 précision de la solution pour les contraintes
+% eps3 précision du cas de stagnation
+% maxiter nombre maximal d'itérations
+% delta_0 taille initiale de la région de confiance
+% delta_max taille maximum de la région de confiance
+% gamma_1 facteur de diminution de la taille de la région de confiance
+% gamme_2 facteur d'augmentation de la taille de la région de confiance
+% eta_1 seuil de diminution de la taille de la région de confiance
+% eta_2 seuil d'augmentation de la taille de la région de confiance
+% eps4 précision du cas de stagnation de la région de confiance
+% maxiter2 nombre maximal d'itérations de la région de confiance
 
     % x = lagrangien_aug(@(x) f1(x),@(x) grad_f1(x),@(x) hess_f1(x),@(x) c1(x),@(x) grad_c1(x),@(x) hess_c1(x),@(x) jacob_c1(x),1.5,1.5,[0.5; 1.25; 1],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)
     % x = lagrangien_aug(@(x) f1(x),@(x) grad_f1(x),@(x) hess_f1(x),@(x) c1(x),@(x) grad_c1(x),@(x) hess_c1(x),@(x) jacob_c1(x),1.5,1.5,[0; 1; 1],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)

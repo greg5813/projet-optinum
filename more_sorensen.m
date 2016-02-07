@@ -1,5 +1,13 @@
 function [ s, lambda ] = more_sorensen( g, H, delta )
-    % algorithme de more sorensen
+    % MORE_SORENSEN algorithme de more sorensen
+    % [ s, lambda ] = more_sorensen( g, H, delta )
+    
+    % g_k gradient de la fonction dont on cherche un minimum au point de
+    % l'itéré k
+    % H_k hessienne de la fonction dont on cherche un minimum au point de
+    % l'itéré k
+    % delta_k taille de la région de confiance à l'itéré k
+    % s point de la solution du pas de Cauchy à l'itéré k
     
     s = 0;
     lambda = 0;
