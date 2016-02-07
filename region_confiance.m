@@ -1,5 +1,5 @@
 function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter )
-% algorithme des regions de confiance
+% REGION_CONFIANCE algorithme des regions de confiance
 
     niter = 0;
     x_k = x_0;
