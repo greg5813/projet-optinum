@@ -3,8 +3,9 @@ function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, 
 
     niter = 0;
     lambda = lambda_max;
+    phi_lambda_max = phi(lambda_max);
 
-    while ( min( abs(phi(lambda_min)), abs(phi(lambda_max)) ) >= epsilon && niter<=maxiter )
+    while ( min( abs(phi(lambda_min)), abs(phi_lambda_max) ) >= epsilon && niter<=maxiter )
         niter = niter +1;
    
         phi_lambda = phi(lambda);
@@ -15,10 +16,11 @@ function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, 
         lambda = lambda_N; 
         else
             lambda_D = (lambda_min + lambda_max) / 2;
-            if ( phi(lambda_D)*phi(lambda_max) <= 0)
+            if ( phi(lambda_D)*phi_lambda_max <= 0)
                 lambda_min = lambda_D;
             else
                 lambda_max = lambda_D;
+                phi_lambda_max = phi(lambda_max);
             end
             lambda = lambda_D;
         end
