@@ -1,4 +1,4 @@
-function [x] = newton_local(grad_f, hess_f, x0, epsilon, epsilon2, maxiter)
+function [x, niter] = newton_local(grad_f, hess_f, x0, epsilon, epsilon2, maxiter)
   % NEWTON_LOCAL algorithme de Newton local
   % x = newton_local(f, grad_f, hess_f, x0, epsilon, epsilon2, maxiter)
   

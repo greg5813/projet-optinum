@@ -1,6 +1,6 @@
-function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter, pas )
+function [ x_k , niter] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter, pas )
 % REGION_CONFIANCE algorithme des regions de confiance
-% x_k = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter )
+% x_k = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, epsilon_1, epsilon_2, maxiter, pas )
  
 % f fonct dont on cherche un minimum
 % grad_f gradient de la fonction dont on cherche un minimum
@@ -31,7 +31,7 @@ function [ x_k ] = region_confiance(f, g_f, H_f, x_0, delta_0, delta_max, gamma_
         niter = niter + 1;
         
         if (pas == 0) 
-            [s_k, ~] = pas_cauchy( g_k, H_k, delta_k );
+            s_k = pas_cauchy( g_k, H_k, delta_k );
         else
             [s_k, ~] = more_sorensen( g_k, H_k, delta_k );
         end

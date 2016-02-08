@@ -1,4 +1,4 @@
-function [ x_k, lambda_k, mu_k ] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c, mu_0, tau, x_0, lambda_0, eps1, eps2, eps3, maxiter, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, eps4, maxiter2 )
+function [ x_k, lambda_k, mu_k , k] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c, mu_0, tau, x_0, lambda_0, eps1, eps2, eps3, maxiter, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, eps4, maxiter2 )
 % LAGRANGIEN_AUG algorithme du lagrangien augmenté
 % [ x_k, lambda_k, mu_k ] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c, mu_0, tau, x_0, lambda_0, eps1, eps2, eps3, maxiter, delta_0, delta_max, gamma_1, gamma_2, eta_1, eta_2, eps4, maxiter2 )
 
@@ -27,13 +27,6 @@ function [ x_k, lambda_k, mu_k ] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c
 % eps4 précision du cas de stagnation de la région de confiance
 % maxiter2 nombre maximal d'itérations de la région de confiance
 
-    % x = lagrangien_aug(@(x) f1(x),@(x) grad_f1(x),@(x) hess_f1(x),@(x) c1(x),@(x) grad_c1(x),@(x) hess_c1(x),@(x) jacob_c1(x),1.5,1.5,[0.5; 1.25; 1],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)
-    % x = lagrangien_aug(@(x) f1(x),@(x) grad_f1(x),@(x) hess_f1(x),@(x) c1(x),@(x) grad_c1(x),@(x) hess_c1(x),@(x) jacob_c1(x),1.5,1.5,[0; 1; 1],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)
-    
-    % x = lagrangien_aug(@(x) f2(x),@(x) grad_f2(x),@(x) hess_f2(x),@(x) c2(x),@(x) grad_c2(x),@(x) hess_c2(x),@(x) jacob_c2(x),1.5,1.5,[1; 0],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)
-    % x = lagrangien_aug(@(x) f2(x),@(x) grad_f2(x),@(x) hess_f2(x),@(x) c2(x),@(x) grad_c2(x),@(x) hess_c2(x),@(x) jacob_c2(x),1.5,1.5,[sqrt(3)/2; sqrt(3)/2],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)
-    
-    
 eta_0_chap = 0.1258925;
 alpha = 0.1;
 beta = 0.9;

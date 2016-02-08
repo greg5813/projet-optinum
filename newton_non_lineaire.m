@@ -1,4 +1,4 @@
-function [ lambda ] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, epsilon, maxiter)
+function [ lambda , niter] = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, epsilon, maxiter)
 % NEWTON_NON_LINEAIRE algorithme de newton pour les equations non linéaires
 % lambda = newton_non_lineaire(phi, der_phi, lambda_min, lambda_max, epsilon, maxiter)
 
