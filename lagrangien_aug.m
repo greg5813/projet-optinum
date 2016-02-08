@@ -57,7 +57,7 @@ while ( (norm(g_L)>=eps1 || norm_c_x_k>=eps2) && k<=maxiter )
     H_Laug = @(x) hess_La(x,lambda_k,mu_k,H_f,c,H_c,J_c);
     
     x_k_prev = x_k;
-    x_k = region_confiance(Laug,g_Laug,H_Laug,x_k,delta_0,delta_max,gamma_1,gamma_2,eta_1,eta_2,eps_k,eps4,maxiter2);
+    x_k = region_confiance(Laug,g_Laug,H_Laug,x_k,delta_0,delta_max,gamma_1,gamma_2,eta_1,eta_2,eps_k,eps4,maxiter2,1);
     norm_c_x_k = norm(c(x_k));
     g_L = grad_La(x_k,lambda_k,0,g_f,c,g_c,J_c);
     
