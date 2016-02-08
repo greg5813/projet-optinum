@@ -10,10 +10,10 @@ function [ x_k, lambda_k, mu_k ] = lagrangien_aug( f, g_f, H_f, c, g_c, H_c, J_c
 % g_c gradient de la fonction
 % H_c hessienne de la fonction
 % J_c jacobienne de la fonction
-% mu_0
-% tau
+% mu_0 pénalité initiale
+% tau facteur de modification de la pénalité
 % x_0 point de départ, première estimation de la solution recherchée
-% lambda_0
+% lambda_0 valeur initiale du multiplicateur
 % eps1 précision de la solution pour la fonction
 % eps2 précision de la solution pour les contraintes
 % eps3 précision du cas de stagnation

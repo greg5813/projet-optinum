@@ -1,4 +1,4 @@
-% script de test
+% initialise les compteurs d'appels à zéro
 
 % nombre d'appels
 % nombre iterations
@@ -53,14 +53,7 @@ global n_phi2;
 n_phi2 = 0;
 global n_phi_ms;
 n_phi_ms = 0;
-global n_q1;
-n_q1 = 0;
-global n_q2;
-n_q2 = 0;
-global n_q3;
-n_q3 = 0;
-global n_q4;
-n_q4 = 0;
+
 
 
 x = lagrangien_aug(@(x) f1(x),@(x) grad_f1(x),@(x) hess_f1(x),@(x) c1(x),@(x) grad_c1(x),@(x) hess_c1(x),@(x) jacob_c1(x),1.5,1.5,[0; 1; 1],1,10^-10,10^-10,10^-10,1000,1,2,0.5,1.5,0.25,0.75,10^-10,1000)    
