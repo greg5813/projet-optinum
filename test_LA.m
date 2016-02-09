@@ -73,13 +73,25 @@ timetable6.Position(3) = timetable6.Extent(3);
 timetable6.Position(4) = timetable6.Extent(4);
 
 NLA3 = cell(10,1);
+x0 = [0;1;1];
 for (i=1:15)
-   x0 = [0;1;1];
     [x,l,m,niter] = lagrangien_aug(f1,g_f1,H_f1,c1,g_c1,H_c1,J_c1,1.5,i,x0,1,10^-15,10^-15,10^-15,1000,1,2,0.5,1.5,0.25,0.75,10^-15,1000);    
     NLA3{i,1} = niter;
 end
 cnames = {'niter'};
-fig6 = figure('Name','Tests Lagrangien augmenté influence de tau','NumberTitle','off','Position',[1 1 500 150]);
+fig6 = figure('Name','Tests Lagrangien augmenté influence de tau f1(x011)','NumberTitle','off','Position',[1 1 500 150]);
+timetable6 = uitable('Data',NLA3,'ColumnName',cnames);
+timetable6.Position(3) = timetable6.Extent(3);
+timetable6.Position(4) = timetable6.Extent(4);
+
+NLA3 = cell(10,1);
+x0 = [sqrt(3)/2;sqrt(3)/2];
+for (i=1:15)
+    [x,l,m,niter] = lagrangien_aug(f2,g_f2,H_f2,c2,g_c2,H_c2,J_c2,1.5,i,x0,1,10^-15,10^-15,10^-15,1000,1,2,0.5,1.5,0.25,0.75,10^-15,1000)    
+    NLA3{i,1} = niter;
+end
+cnames = {'niter'};
+fig6 = figure('Name','Tests Lagrangien augmenté influence de tau f2(x022)','NumberTitle','off','Position',[1 1 500 150]);
 timetable6 = uitable('Data',NLA3,'ColumnName',cnames);
 timetable6.Position(3) = timetable6.Extent(3);
 timetable6.Position(4) = timetable6.Extent(4);

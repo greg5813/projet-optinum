@@ -116,7 +116,22 @@ for (i=1:9)
 end
 cnames = {'0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'};
 rnames = {'1.1','1.2','1.3','1.4','1.5','1.6','1.7','1.8','1.9'};
-fig2 = figure('Name','Tests région de confiance influence gamma1 et gamma2','NumberTitle','off','Position',[1 1 500 150]);
+fig2 = figure('Name','Tests région de confiance MS influence gamma1 et gamma2 f2(x023)','NumberTitle','off','Position',[1 1 500 150]);
+timetable2 = uitable('Data',RC2,'ColumnName',cnames,'RowName',rnames);
+timetable2.Position(3) = timetable2.Extent(3);
+timetable2.Position(4) = timetable2.Extent(4);
+
+RC2 = cell(9,9);
+x0 = [10;3;-2.2];
+for (i=1:9)
+    for (j=1:9)   
+        [x,niter] = region_confiance(f1, g_f1, H_f1, x0, 1, 2, 0.1*i, 0.1*j+1, 0.25, 0.75, 10^-15, 10^-15, 1000,0);
+        RC2{i,j} = niter;
+    end
+end
+cnames = {'0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'};
+rnames = {'1.1','1.2','1.3','1.4','1.5','1.6','1.7','1.8','1.9'};
+fig2 = figure('Name','Tests région de confiance Cauchy influence gamma1 et gamma2 f1(x012)','NumberTitle','off','Position',[1 1 500 150]);
 timetable2 = uitable('Data',RC2,'ColumnName',cnames,'RowName',rnames);
 timetable2.Position(3) = timetable2.Extent(3);
 timetable2.Position(4) = timetable2.Extent(4);
